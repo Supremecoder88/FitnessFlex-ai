@@ -74,7 +74,7 @@ const HomePage = () => {
             </div>
 
             {/* RIGHT SIDE CONTENT */}
-            <div className="lg:col-span-5 relative">
+            <div className="lg:col-span-5 flex items-center justify-center relative">
               {/* CORNER PIECES */}
               <div className="absolute -inset-4 pointer-events-none">
                 <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-border" />
@@ -83,35 +83,29 @@ const HomePage = () => {
                 <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-border" />
               </div>
 
-              {/* IMAGE CONTANINER */}
-              <div className="relative aspect-square max-w-lg mx-auto">
-                <div className="relative overflow-hidden rounded-lg bg-cyber-black">
-                  <Image
-                    src="/page.png"
-                    alt="AI Fitness Coach"
-                    layout="fill"
-                    objectFit="cover"
-                    className="object-center"
-                  />
+              <div className="relative w-full max-w-lg aspect-square">
+                <Image
+                  src="/page.png"
+                  alt="AI Fitness Coach"
+                  layout="fill"
+                  className="object-cover rounded-lg z-0"
+                />
 
-                  {/* SCAN LINE */}
-                  <div className="absolute inset-0 bg-[linear-gradient(transparent_0%,transparent_calc(50%-1px),var(--cyber-glow-primary)_50%,transparent_calc(50%+1px),transparent_100%)] bg-[length:100%_8px] animate-scanline pointer-events-none" />
+                {/* SCAN LINE */}
+                <div className="absolute inset-0 bg-[linear-gradient(transparent_0%,transparent_calc(50%-1px),var(--cyber-glow-primary)_50%,transparent_calc(50%+1px),transparent_100%)] bg-[length:100%_8px] animate-scanline pointer-events-none z-10" />
 
-                  {/* DECORATIONS ON TOP THE IMAGE */}
-                  <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 border border-primary/40 rounded-full" />
-
-                    {/* Targeting lines */}
-                    <div className="absolute top-1/2 left-0 w-1/4 h-px bg-primary/50" />
-                    <div className="absolute top-1/2 right-0 w-1/4 h-px bg-primary/50" />
-                    <div className="absolute top-0 left-1/2 h-1/4 w-px bg-primary/50" />
-                    <div className="absolute bottom-0 left-1/2 h-1/4 w-px bg-primary/50" />
-                  </div>
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                {/* DECORATIONS ON TOP THE IMAGE */}
+                <div className="absolute inset-0 pointer-events-none z-10">
+                  <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 border border-primary/40 rounded-full" />
+                  {/* Targeting lines */}
+                  <div className="absolute top-1/2 left-0 w-1/4 h-px bg-primary/50" />
+                  <div className="absolute top-1/2 right-0 w-1/4 h-px bg-primary/50" />
+                  <div className="absolute top-0 left-1/2 h-1/4 w-px bg-primary/50" />
+                  <div className="absolute bottom-0 left-1/2 h-1/4 w-px bg-primary/50" />
                 </div>
 
-                {/* TERMINAL OVERLAY */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10" />
+
                 <TerminalOverlay />
               </div>
             </div>
