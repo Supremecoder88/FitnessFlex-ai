@@ -138,16 +138,29 @@ const GenerateProgramPage = () => {
         setMessages([]);
         setCallEnded(false);
 
+        const workflowId = process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID;
+        const currentUserId = user?.id;
+
+        console.log("Starting Vapi call with:");
+        console.log("Workflow ID:", workflowId);
+        console.log("User ID:", currentUserId);
+
+        if (!workflowId) {
+          console.error("VAPI_WORKFLOW_ID is not set.");
+          setConnecting(false);
+          return;
+        }
+
         const fullName = user?.firstName
           ? `${user.firstName} ${user.lastName || ""}`.trim()
           : "There";
 
-        await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {
+        await vapi.start(workflowId, {
           variableValues: {
             full_name: fullName,
           },
           metadata: {
-            user_id: user?.id,
+            user_id: currentUserId,
           },
         });
       } catch (error) {
